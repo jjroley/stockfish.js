@@ -512,8 +512,8 @@ ifeq ($(KERNEL),Darwin)
 	CXXFLAGS += -mmacosx-version-min=10.14
 	LDFLAGS += -mmacosx-version-min=10.14
 	ifneq ($(arch),any)
-		CXXFLAGS += -arch $(arch)
-		LDFLAGS += -arch $(arch)
+		CXXFLAGS += -arch=$(arch)
+		LDFLAGS += -arch=$(arch)
 	endif
 	XCRUN = xcrun
 endif
@@ -626,7 +626,7 @@ ifeq ($(optimize),yes)
 
 	ifeq ($(KERNEL),Darwin)
 		ifeq ($(comp),$(filter $(comp),clang icx))
-			CXXFLAGS += -mdynamic-no-pic
+# CXXFLAGS += -mdynamic-no-pic
 		endif
 
 		ifeq ($(comp),gcc)
