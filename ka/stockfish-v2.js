@@ -838,4 +838,4 @@ window.stockfish_code = `(function(){
 	})) : "object" == typeof document && document.currentScript ? document.currentScript._exports = o() : o())
 })();`
 
-window.stockfish_worker = `data:text/javascript;base64,${btoa(window.stockfish_code)}`
+window.stockfish_worker = URL.createObjectURL( new Blob([stockfish_code], { type: 'application/javascript' }) )
